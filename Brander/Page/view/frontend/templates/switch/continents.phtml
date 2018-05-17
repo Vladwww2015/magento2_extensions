@@ -1,0 +1,31 @@
+<?php
+
+// @codingStandardsIgnoreFile
+
+/** @var \Brander\Page\Block\Continents $block */
+?>
+
+<div class="switcher language switcher-language" data-ui-id="continent-switcher" id="switcher-continent">
+    <strong class="label switcher-label"><span><?= $block->escapeHtml(__('Continent')) ?></span></strong>
+    <div class="actions dropdown options switcher-options">
+        <div class="action toggle switcher-trigger"
+             id="switcher-continent-trigger"
+             data-mage-init='{"dropdown":{}}'
+             data-toggle="dropdown"
+             data-trigger-keypress-button="true">
+            <strong class="view-<?= $block->escapeHtml($block->getContinentName()) ?>">
+                <span><?= $block->escapeHtml($block->getContinentName()) ?></span>
+            </strong>
+        </div>
+        <ul class="dropdown switcher-dropdown"
+            data-target="dropdown">
+            <?php foreach ($block->getContinents() as $continent): ?>
+                <li class="view-<?= $block->escapeHtml($continent['continent_label']) ?> switcher-option">
+                    <a href="#" data-post='<?= /* @noEscape */ $block->getTargetStorePostData($continent) ?>'>
+                        <?= $block->escapeHtml($continent['continent_label']) ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>

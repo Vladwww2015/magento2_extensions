@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <referenceContainer name="header.panel">
+            <block class="Brander\Page\Block\ContinentsInterface"
+                   name="page.continents"
+                   as="page.continents"
+                   template="Brander_Page::switch/continents.phtml"
+                   before="top.links"/>
+        </referenceContainer>
+
+        <referenceContainer name="footer">
+            <block class="Brander\Page\Block\SocialLinksInterface"
+                   name="page.social_links"
+                   as="page.social_links"
+                   template="Brander_Page::social_links.phtml"
+                   before="subscribe"/>
+        </referenceContainer>
+    </body>
+</page>

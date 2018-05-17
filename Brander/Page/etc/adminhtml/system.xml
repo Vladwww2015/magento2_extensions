@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="brander" translate="label" sortOrder="10">
+            <label>Brander</label>
+        </tab>
+        <section id="page" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Page Settings</label>
+            <tab>brander</tab>
+            <resource>Brander_Page::page_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="header" translate="label" extends="page/general/enable" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Header</label>
+                <field id="continents" extends="page/general/enable" translate="label comment tooltip" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Continents</label>
+                    <frontend_model>Brander\Page\Block\Adminhtml\System\Config\Form\Field\Continents</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <tooltip></tooltip>
+                </field>
+            </group>
+            <group id="footer" translate="label" extends="page/general/enable" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Footer</label>
+                <field id="social_links" extends="page/general/enable" translate="label comment tooltip" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Social Links</label>
+                    <frontend_model>Brander\Page\Block\Adminhtml\System\Config\Form\Field\SocialLinks</frontend_model>
+                    <backend_model>Brander\Page\Model\Config\Backend\Serialized\SocialLinks</backend_model>
+                    <upload_dir scope_info="1">brander_page/config/social_links</upload_dir>
+                    <tooltip></tooltip>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
