@@ -1,0 +1,23 @@
+<?php /** @var $block \Brander\SwatchesUrl\Block\Catalog\Product\Swatch\Renderer */ ?>
+<div id="product_url"></div>
+<script type="text/javascript">
+    requirejs.config({
+        config: {
+            mixins: {
+                'Magento_Swatches/js/swatch-renderer': {
+                    'Brander_SwatchesUrl/js/swatch-renderer-mixin': true
+                }
+            }
+        }
+    });
+
+</script>
+<script type="text/x-magento-init">
+    {
+        "#product_url": {
+            "Brander_SwatchesUrl/js/product-url": {
+                "product_url": "<?php echo $block->getProduct()->getProductUrl(); ?>"
+            }
+        }
+    }
+</script>
